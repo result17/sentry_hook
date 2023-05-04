@@ -1,4 +1,4 @@
-FROM rust:1.69-alpine3.17
+FROM rust:1-slim-buster
 COPY . .
 RUN cargo build --release
 CMD ["./target/release/sentry _webhook"]
