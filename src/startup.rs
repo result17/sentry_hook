@@ -27,6 +27,13 @@ async fn print_request_response(
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
   let (parts, body) = req.into_parts();
   let bytes = buffer_and_print("request", body).await?;
+
+  let slice = bytes.slice(0..bytes.len());
+
+  let body_str = String::from_utf8(slice.to_vec()).unwrap();
+
+  println!("Request body:\n{}", body_str);
+
   let req = Request::from_parts(parts, Body::from(bytes));
 
   let res = next.run(req).await;

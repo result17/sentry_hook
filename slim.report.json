@@ -1,0 +1,47 @@
+{
+  "version": "1.1",
+  "engine": "linux|Transformer|1.40.1|9c5e69ab1fd4564b0a5426d47be038155e63e4c1|2023-04-05_11:22:53PM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Ubuntu",
+    "version": "18.04",
+    "display_name": "Ubuntu 18.04.5 LTS"
+  },
+  "type": "build",
+  "state": "error",
+  "target_reference": ".",
+  "system": {
+    "type": "",
+    "release": "",
+    "distro": {
+      "name": "",
+      "version": "",
+      "display_name": ""
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": ""
+    },
+    "size": 0,
+    "size_human": "",
+    "create_time": "",
+    "docker_version": "",
+    "architecture": "",
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 0,
+  "minified_image_size_human": "",
+  "minified_image": "",
+  "minified_image_has_data": false,
+  "minified_by": 0,
+  "artifact_location": "",
+  "container_report_name": "",
+  "seccomp_profile_name": "",
+  "apparmor_profile_name": "",
+  "image_stack": null,
+  "image_created": false,
+  "image_build_engine": ""
+}
