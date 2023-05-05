@@ -1,4 +1,4 @@
-FROM rust:1-alpine3.17 AS builder
+FROM rust:1-slim-buster AS builder
 WORKDIR /app
 COPY . .
 RUN cargo build --release
