@@ -1,15 +1,15 @@
 {
   "version": "1.1",
-  "engine": "linux|Transformer|1.40.1|9c5e69ab1fd4564b0a5426d47be038155e63e4c1|2023-04-05_11:22:53PM",
+  "engine": "darwin|Transformer|1.40.1|latest|latest",
   "containerized": false,
   "host_distro": {
-    "name": "Ubuntu",
-    "version": "18.04",
-    "display_name": "Ubuntu 18.04.5 LTS"
+    "name": "",
+    "version": "",
+    "display_name": "other"
   },
   "type": "build",
   "state": "error",
-  "target_reference": "sentry_webhook",
+  "target_reference": "sentry_webhook.fat",
   "system": {
     "type": "",
     "release": "",
@@ -43,36 +43,36 @@
   "apparmor_profile_name": "",
   "image_stack": [
     {
-      "is_top_image": true,
-      "id": "sha256:2ce1f707117cefd14c7b8dbf2d30da70564bc4395999b3ca269d84a9b271f94f",
-      "full_name": "sentry_webhook:latest",
-      "repo_name": "sentry_webhook",
-      "version_tag": "latest",
+      "is_top_image": false,
+      "id": "sha256:f1b656b91a0905899b626add21ddeafee5e20590dc0b6d986a8193cb5975e20d",
+      "full_name": "rust:1-slim-buster",
+      "repo_name": "rust",
+      "version_tag": "1-slim-buster",
       "raw_tags": [
-        "sentry_webhook:latest"
+        "rust:1-slim-buster"
       ],
-      "create_time": "2023-05-04T18:00:00Z",
-      "new_size": 2550111569,
-      "new_size_human": "2.6 GB",
+      "create_time": "2023-05-03T18:59:32Z",
+      "new_size": 734891792,
+      "new_size_human": "735 MB",
       "instructions": [
         {
           "type": "ADD",
-          "time": "2023-05-02T23:46:59Z",
+          "time": "2023-05-02T23:47:16Z",
           "is_nop": true,
           "local_image_exists": false,
           "layer_index": 0,
-          "size": 80525580,
-          "size_human": "80 MB",
-          "params": "file:a2378c1b12e95db69e24b9d347441678c6f23239292cce3c822b1524992b6ec4 in /",
-          "command_snippet": "ADD file:a2378c1b12e95db69e24b9d347441678c6f...",
-          "command_all": "ADD file:a2378c1b12e95db69e24b9d347441678c6f23239292cce3c822b1524992b6ec4 /",
+          "size": 69261531,
+          "size_human": "69 MB",
+          "params": "file:00bc0eda6d2eb0f8ad4abc654f762ffb9ec7e8d1c95d0cc0e7d0cba176d33e27 in /",
+          "command_snippet": "ADD file:00bc0eda6d2eb0f8ad4abc654f762ffb9ec...",
+          "command_all": "ADD file:00bc0eda6d2eb0f8ad4abc654f762ffb9ec7e8d1c95d0cc0e7d0cba176d33e27 /",
           "target": "/",
           "source_type": "file",
           "inst_set_time_bucket": "2023-05-03T07:45:00+08:00"
         },
         {
           "type": "CMD",
-          "time": "2023-05-02T23:47:00Z",
+          "time": "2023-05-02T23:47:17Z",
           "is_nop": true,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -85,7 +85,7 @@
         },
         {
           "type": "ENV",
-          "time": "2023-05-03T19:00:00Z",
+          "time": "2023-05-03T18:59:07Z",
           "is_nop": true,
           "local_image_exists": false,
           "layer_index": 0,
@@ -93,17 +93,18 @@
           "params": "RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_VERSION=1.69.0",
           "command_snippet": "ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME...",
           "command_all": "ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin RUST_VERSION=1.69.0",
-          "inst_set_time_bucket": "2023-05-04T03:00:00+08:00",
+          "inst_set_time_bucket": "2023-05-04T02:45:00+08:00",
           "inst_set_time_index": 1
         },
         {
           "type": "RUN",
-          "time": "2023-05-03T19:00:26Z",
+          "time": "2023-05-03T18:59:32Z",
+          "is_last_instruction": true,
           "is_nop": false,
-          "local_image_exists": false,
+          "local_image_exists": true,
           "layer_index": 0,
-          "size": 704142512,
-          "size_human": "704 MB",
+          "size": 665630261,
+          "size_human": "666 MB",
           "command_snippet": "RUN set -eux;     apt-get update;     apt-ge...",
           "command_all": "RUN set -eux;     apt-get update;     apt-get install -y --no-install-recommends         ca-certificates         gcc         libc6-dev         wget         ;     dpkgArch=\"$(dpkg --print-architecture)\";     case \"${dpkgArch##*-}\" in         amd64) rustArch='x86_64-unknown-linux-gnu'; rustupSha256='bb31eaf643926b2ee9f4d8d6fc0e2835e03c0a60f34d324048aa194f0b29a71c' ;;         armhf) rustArch='armv7-unknown-linux-gnueabihf'; rustupSha256='6626b90205d7fe7058754c8e993b7efd91dedc6833a11a225b296b7c2941194f' ;;         arm64) rustArch='aarch64-unknown-linux-gnu'; rustupSha256='4ccaa7de6b8be1569f6b764acc28e84f5eca342f5162cd5c810891bff7ed7f74' ;;         i386) rustArch='i686-unknown-linux-gnu'; rustupSha256='34392b53a25c56435b411d3e575b63aab962034dd1409ba405e708610c829607' ;;         *) echo >&2 \"unsupported architecture: ${dpkgArch}\"; exit 1 ;;     esac;     url=\"https://static.rust-lang.org/rustup/archive/1.25.2/${rustArch}/rustup-init\";     wget \"$url\";     echo \"${rustupSha256} *rustup-init\" | sha256sum -c -;     chmod +x rustup-init;     ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION --default-host ${rustArch};     rm rustup-init;     chmod -R a+w $RUSTUP_HOME $CARGO_HOME;     rustup --version;     cargo --version;     rustc --version;     apt-get remove -y --auto-remove         wget         ;     rm -rf /var/lib/apt/lists/*;",
           "system_commands": [
@@ -141,48 +142,67 @@
             "rm -rf /var/lib/apt/lists/*",
             ""
           ],
-          "inst_set_time_bucket": "2023-05-04T03:00:00+08:00",
+          "raw_tags": [
+            "rust:1-slim-buster"
+          ],
+          "inst_set_time_bucket": "2023-05-04T02:45:00+08:00",
           "inst_set_time_index": 1
-        },
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:31c6ab9893efa688d260e820b6988c39e09f94c74dd8541e8b90796a31529f67",
+      "full_name": "sentry_webhook.fat:latest",
+      "repo_name": "sentry_webhook.fat",
+      "version_tag": "latest",
+      "raw_tags": [
+        "sentry_webhook.fat:latest"
+      ],
+      "create_time": "2023-05-05T01:51:15Z",
+      "new_size": 1088212326,
+      "new_size_human": "1.1 GB",
+      "base_image_id": "sha256:f1b656b91a0905899b626add21ddeafee5e20590dc0b6d986a8193cb5975e20d",
+      "instructions": [
         {
           "type": "COPY",
-          "time": "2023-05-04T17:58:01Z",
-          "is_nop": false,
-          "local_image_exists": false,
+          "time": "2023-05-05T01:46:03Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:ad15fa35c4b14697f03a0ae74dca135b5833b0ba7dd9816f137219516834f75b",
           "layer_index": 0,
-          "size": 1161653384,
-          "size_human": "1.2 GB",
-          "params": ". .",
-          "command_snippet": "COPY . .",
-          "command_all": "COPY . .",
-          "comment": "buildkit.dockerfile.v0",
-          "is_buildkit_instruction": true,
-          "inst_set_time_bucket": "2023-05-05T01:45:00+08:00",
+          "size": 484063699,
+          "size_human": "484 MB",
+          "params": "dir:35aef9eb51d1d20d0741fcef521bb045cf6c1863075ec81c7e5b2500560a7b97 in .",
+          "command_snippet": "COPY dir:35aef9eb51d1d20d0741fcef521bb045cf6...",
+          "command_all": "COPY dir:35aef9eb51d1d20d0741fcef521bb045cf6c1863075ec81c7e5b2500560a7b97 .",
+          "target": ".",
+          "source_type": "dir",
+          "inst_set_time_bucket": "2023-05-05T09:45:00+08:00",
           "inst_set_time_index": 2
         },
         {
           "type": "RUN",
-          "time": "2023-05-04T18:00:00Z",
+          "time": "2023-05-05T01:51:13Z",
           "is_nop": false,
-          "local_image_exists": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:06e0bb320c96bdb39b675e32d0d73ee044ee80f838009cf9fc884f6d018d2eb6",
           "layer_index": 0,
-          "size": 603790093,
+          "size": 604148627,
           "size_human": "604 MB",
           "command_snippet": "RUN cargo build --release",
           "command_all": "RUN cargo build --release",
           "system_commands": [
             "cargo build --release"
           ],
-          "comment": "buildkit.dockerfile.v0",
-          "is_buildkit_instruction": true,
-          "inst_set_time_bucket": "2023-05-05T02:00:00+08:00",
-          "inst_set_time_index": 3
+          "inst_set_time_bucket": "2023-05-05T09:45:00+08:00",
+          "inst_set_time_index": 2
         },
         {
           "type": "CMD",
-          "time": "2023-05-04T18:00:00Z",
+          "time": "2023-05-05T01:51:15Z",
           "is_last_instruction": true,
-          "is_nop": false,
+          "is_nop": true,
           "is_exec_form": true,
           "local_image_exists": true,
           "layer_index": 0,
@@ -190,13 +210,11 @@
           "params": "[\"./target/release/sentry _webhook\"]\n",
           "command_snippet": "CMD [\"./target/release/sentry _webhook\"]\n",
           "command_all": "CMD [\"./target/release/sentry _webhook\"]\n",
-          "comment": "buildkit.dockerfile.v0",
           "raw_tags": [
-            "sentry_webhook:latest"
+            "sentry_webhook.fat:latest"
           ],
-          "is_buildkit_instruction": true,
-          "inst_set_time_bucket": "2023-05-05T02:00:00+08:00",
-          "inst_set_time_index": 3
+          "inst_set_time_bucket": "2023-05-05T09:45:00+08:00",
+          "inst_set_time_index": 2
         }
       ]
     }

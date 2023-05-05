@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  webhook_service:
+    container_name: sentry_webhook
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '9230:9230'
