@@ -1,6 +1,6 @@
-use crate::routes::{feishu_webhook};
+use crate::routes::{feishu_webhook, hello_world};
 use axum::{
-  routing::{post},
+  routing::{get, post},
   Router, Server,
   middleware::{self, Next},
   response::IntoResponse,
@@ -13,6 +13,7 @@ use std::{net::TcpListener};
 
 pub async fn run(listener: TcpListener) -> Result<(), hyper::Error> {
   let app = Router::new()
+      .route("/", get(hello_world))
       .route("/feishu", post(feishu_webhook))
       .layer(middleware::from_fn(print_request_response));
 
