@@ -14,9 +14,7 @@ RUN cargo fetch
 COPY . .
 RUN cargo build --bin sentry_webhook --release --target x86_64-unknown-linux-musl
 
-FROM debian:buster-slim
-
-RUN apt-get update && apt-get install -y ca-certificates && apt-get install -y curl
+FROM alpine:latest
 
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/sentry_webhook /usr/bin/sentry_webhook
 
