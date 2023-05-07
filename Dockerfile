@@ -16,8 +16,7 @@ RUN cargo build --bin sentry_webhook --release --target x86_64-unknown-linux-mus
 
 FROM debian:buster-slim
 
-RUN apt-get update \
-    && apt-get install curl
+RUN apt-get update && apt-get install ca-certificates && apt-get install curl
 
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/sentry_webhook /usr/bin/sentry_webhook
 
