@@ -5,7 +5,7 @@ use sentry_webhook::{
 
 #[tokio::main]
 async fn main() -> Result<(), hyper::Error> {
-    let socket_addr = format!("127.0.0.1:{}", "9230");
+    let socket_addr = format!("0.0.0.0:{}", "9230");
     let addr = socket_addr.clone();
     println!("Listening on {}", addr);
     let listener = TcpListener::bind(socket_addr).expect("Cannot bind to socket");
