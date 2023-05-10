@@ -1,6 +1,24 @@
 use std::{collections::{HashMap}};
 
 #[derive(serde::Serialize, serde::Deserialize)]
+struct WebhookStacktraceFrame {
+  function: String,
+  module: String,
+  filename: String,
+  abs_path: String,
+  lineno: u32,
+  pre_context: Vec<String>,
+  conext_line: String,
+  post_context: Vec<String>,
+  in_app: bool,
+}
+
+#[derive(serde::Serialize, serde::Deserialize)]
+struct WebhookStacktrace {
+  frames: Vec<WebhookStacktraceFrame>,
+}
+
+#[derive(serde::Serialize, serde::Deserialize)]
 struct WebhookClientOs {
   name: String,
   version: String,
@@ -62,7 +80,7 @@ struct WebhookEvent {
 }
 
 #[derive(serde::Serialize, serde::Deserialize)]
-struct WebhookRequest {
+pub struct WebhookRequest {
   id: String,
   project: String,
   project_name: String,
@@ -73,4 +91,7 @@ struct WebhookRequest {
   url: String,
   #[serde(skip_serializing, skip_deserializing)]
   triggering_rules: String,
+  contexts: WebhookContexts,
+  stacktrace: WebhookStacktrace,
+  tags: Vec<Vec<String>>
 }

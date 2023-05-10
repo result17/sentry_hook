@@ -621,6 +621,7 @@ dependencies = [
  "config",
  "hyper",
  "serde",
+ "serde_json",
  "tokio",
 ]
 
